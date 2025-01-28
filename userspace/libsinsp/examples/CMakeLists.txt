@@ -19,6 +19,11 @@ add_executable(sinsp-example util.cpp test.cpp)
 
 target_link_libraries(sinsp-example sinsp "${JSONCPP_LIB}")
 
+# Add the executable for file-monitor
+add_executable(file-monitor file-monitor.cpp)
+target_include_directories(file-monitor PRIVATE ${CMAKE_SOURCE_DIR}/libsinsp ${CMAKE_SOURCE_DIR}/libscap)
+target_link_libraries(file-monitor sinsp scap)
+
 if(EMSCRIPTEN)
 	target_compile_options(sinsp-example PRIVATE "-sDISABLE_EXCEPTION_CATCHING=0")
 	target_link_options(sinsp-example PRIVATE "-sDISABLE_EXCEPTION_CATCHING=0")
