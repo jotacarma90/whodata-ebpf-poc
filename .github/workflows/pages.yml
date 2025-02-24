@@ -28,7 +28,7 @@ jobs:
         uses: ./.github/actions/composite-perf
 
       - name: Archive master perf report
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
         with:
           name: perf_report
           retention-days: 30 # 30 days because this is the artifact on master; we need to retain it to be able to properly diff it
@@ -72,7 +72,7 @@ jobs:
           rm -rf stacks.txt
 
       - name: Upload svg files
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
         with:
           name: perf_svg
           path: '*.svg'
@@ -128,7 +128,7 @@ jobs:
           echo '<object data="../heaptrack_scap.svg" type="image/svg+xml" id="heaptrack_scap_file"></object>' > docs/heaptrack_scap_file.md
           sed -i '1s/^/---\nhide:\n- toc\n---\n\n/' docs/heaptrack_scap_file.md
 
-      - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: 3.x
 
